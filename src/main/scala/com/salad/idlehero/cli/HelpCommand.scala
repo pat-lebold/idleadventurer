@@ -8,9 +8,11 @@ class HelpCommand() extends AbstractCliCommand[HelpCommandArgs]() {
   override val helpText: String =
     """
       | IdleHero Available Commands:
-      | - /mine
-      | - /purchase
-      | - /stats
+      |	- /campaign <start | stop>
+      |	- /stats --hero <hero name>
+      |	- /stats --item <item name>
+      | - /inventory
+      | - /shop
       |""".stripMargin
 
   override def parser(): OptionParser[HelpCommandArgs] = {

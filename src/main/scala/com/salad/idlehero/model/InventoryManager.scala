@@ -26,4 +26,10 @@ class InventoryManager() {
 
     throw new Exception(s"You don't have enough \"${itemStack.item.id()}\"")
   }
+
+  override def toString: String = {
+    inventory.values.map { itemStack =>
+      s"\t- ${itemStack.item.id()}: ${itemStack.quantity}"
+    }.mkString("Inventory:\n","\n","\n")
+  }
 }
