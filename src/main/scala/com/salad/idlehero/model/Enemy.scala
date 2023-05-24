@@ -19,8 +19,8 @@ case class Enemy(name: String,
     if (crit)
       println("It's a critical strike!")
 
-    val attackNet = attackDamage * multiplier - armor
-    val magicNet = magicDamage * multiplier - magicResist
+    val attackNet = Math.max(attackDamage * multiplier - armor, 0)
+    val magicNet = Math.max(magicDamage * multiplier - magicResist, 0)
     health = health - attackNet - magicNet
     println(s"You hit the ${displayName()} for $attackNet attack damage and $magicNet magic damage!")
 

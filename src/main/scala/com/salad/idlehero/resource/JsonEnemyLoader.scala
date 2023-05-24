@@ -23,7 +23,7 @@ object JsonEnemyLoader extends AbstractJsonResourceLoader {
         val name = dropItem.get("name").asText()
         val chance = dropItem.get("chance").asDouble()
         val quantity = dropItem.get("quantity").asLong()
-        val itemStack = ItemStack(items(name), quantity)
+        val itemStack = new ItemStack(items(name), quantity)
         itemStack -> chance
       }.toMap
 
