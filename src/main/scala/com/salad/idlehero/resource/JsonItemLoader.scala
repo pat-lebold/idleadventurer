@@ -1,5 +1,6 @@
 package com.salad.idlehero.resource
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.salad.idlehero.model.{Item, ItemSlots}
 
 import java.nio.file.{FileSystems, Files}
@@ -24,12 +25,12 @@ object JsonItemLoader extends AbstractJsonResourceLoader {
         elemental = jsonTree.get("elemental").asBoolean(),
         element = None,
         components = jsonTree.get("components").map { _.asText() }.toSeq,
-        itemSlot = if (itemSlotNode.isNull) None else Some(ItemSlots.fromString(itemSlotNode.asText())),
-        attackDamage = jsonTree.get("attackDamage").asLong(),
-        magicDamage = jsonTree.get("magicDamage").asLong(),
-        attackSpeed = jsonTree.get("attackSpeed").asLong(),
-        critChance = jsonTree.get("critChance").asDouble(),
-        dropRate = jsonTree.get("dropRate").asDouble()
+        itemSlot = if (itemSlotNode == null) None else Some(ItemSlots.fromString(itemSlotNode.asText())),
+        attackDamage = if(jsonTree.has("attackDamage")) jsonTree.get("attackDamage").asLong() else 0,
+        magicDamage = if(jsonTree.has("magicDamage")) jsonTree.get("magicDamage").asLong() else 0,
+        attackSpeed = if(jsonTree.has("attackSpeed")) jsonTree.get("attackSpeed").asLong() else 0,
+        critChance = if(jsonTree.has("critChance")) jsonTree.get("critChance").asDouble() else 0,
+        dropRate = if(jsonTree.has("dropRate")) jsonTree.get("dropRate").asDouble() else 0
       )
       name -> item
     }.toMap

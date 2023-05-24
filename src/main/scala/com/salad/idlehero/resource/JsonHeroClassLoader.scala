@@ -8,7 +8,7 @@ import scala.collection.convert.ImplicitConversions.`iterable AsScalaIterable`
 object JsonHeroClassLoader extends AbstractJsonResourceLoader {
 
   def loadHeroClasses(): Map[String, HeroClass] = {
-    val heroClassPath = FileSystems.getDefault.getPath(s"${BASE_PATH}heroes/classes.json")
+    val heroClassPath = FileSystems.getDefault.getPath(s"${BASE_PATH}heroclasses.json")
 
     val jsonTree = objectMapper.readTree(heroClassPath.toFile)
     jsonTree.map { jsonNode =>

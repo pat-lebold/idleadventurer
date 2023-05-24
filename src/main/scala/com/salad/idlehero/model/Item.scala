@@ -27,6 +27,13 @@ case class Item(name: String,
   }
 
   override def toString: String = {
-    super.toString
+    s"""
+      | Item:
+      | \t- name: $name
+      | \t- sell value: $sellValue
+      | \t- buy value: $buyValue
+      | \t- elemental: $elemental
+      | \t- itemSlot: ${if (itemSlot.isDefined) itemSlot else None}
+      |""".stripMargin
   }
 }

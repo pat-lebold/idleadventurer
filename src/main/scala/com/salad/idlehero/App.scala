@@ -1,9 +1,9 @@
 package com.salad.idlehero
 
 import com.salad.idlehero.cli.CliManager
-import com.salad.idlehero.game.GameLoopManager
+import com.salad.idlehero.game.{EnemyGenerator, GameLoopManager}
 import com.salad.idlehero.model.{Hero, InventoryManager}
-import com.salad.idlehero.resource.JsonHeroLoader
+import com.salad.idlehero.resource.{JsonCampaignLoader, JsonEnemyLoader, JsonHeroLoader, JsonItemLoader}
 
 import scala.io.StdIn.readLine
 
@@ -12,15 +12,24 @@ object App {
 
   def main(args: Array[String]): Unit = {
 
+    /*
     val userHero: Hero = userSelectsHero()
 
     inventoryIntro()
     gotoIntro()
+     */
+
+    val campaigns = JsonCampaignLoader.loadCampaigns()
+    val items = JsonItemLoader.loadItems()
+    val heroes = JsonHeroLoader.loadStarterHeroes()
+    val enemies = JsonEnemyLoader.loadEnemies()
+
+    val userHero = heroes("warrior")
 
     val inventoryManager = new InventoryManager()
-    val gameLoopManager = new GameLoopManager(inventoryManager)
+    val gameLoopManager = new GameLoopManager(inventoryManager, campaigns, userHero, enemies)
 
-    val cliManager = new CliManager(inventoryManager, gameLoopManager)
+    val cliManager = new CliManager(inventoryManager, gameLoopManager, items, heroes, userHero).init()
 
     while(true) {
       val input = readLine().split(" ")
@@ -35,37 +44,6 @@ object App {
         }
       }
     }
-    // val gameLoopManager
-
-    /*
-
-    val resourceManager = new ResourceManager().init()
-
-    val resourceGrowthTasks = GrowthTaskJsonLoader.loadGrowthTasks().map { resourceGrowthTask => resourceGrowthTask.name -> resourceGrowthTask }.toMap
-    val resourceGrowthTaskManager = new ResourceGrowthTaskManager(resourceGrowthTasks, resourceManager)
-
-    val gameLoopManager = new GameLoopManager(resourceGrowthTaskManager)
-
-    val cliManager = new CliManager(resourceManager, resourceGrowthTaskManager).init()
-
-    val ex = new ScheduledThreadPoolExecutor(1)
-    ex.scheduleAtFixedRate(gameLoopManager, 0L, Constants.TICK_SPEED, TimeUnit.MILLISECONDS)
-
-    while(true){
-      val input = readLine().split(" ")
-      if (input.nonEmpty) {
-        val command = input(0)
-        val args = input.drop(1)
-
-        if (cliManager.cliCommands.contains(command))
-          cliManager.cliCommands(command).execute(args)
-        else {
-          cliManager.cliCommands("/help").execute(args)
-        }
-      }
-    }
-
-     */
   }
 
   private def userSelectsHero(): Hero = {
@@ -84,10 +62,10 @@ object App {
 
     val helpText =
       """
-        |Help:
-        |\t- /list heroes
-        |\t- /select --hero <heroname>
-        |\t- /stats --hero <heroname>\n\n
+        | Help:
+        | - /list heroes
+        | - /select --hero <heroname>
+        | - /stats --hero <heroname>\n\n
         |""".stripMargin
 
     println(helpText)

@@ -5,7 +5,7 @@ import com.salad.idlehero.model.{Hero, HeroClass, Item}
 import scopt.OptionParser
 
 class StatsCommand(private val items: Map[String, Item],
-                   private val heroes: Map[String, HeroClass],
+                   private val heroes: Map[String, Hero],
                    private val hero: Hero) extends AbstractCliCommand[StatsCommandArgs]() {
 
   override val commandName: String = "/stats"
@@ -35,7 +35,7 @@ class StatsCommand(private val items: Map[String, Item],
     val statsArgs = parser().parse(args, StatsCommandArgs()).get
     if (statsArgs.hero.isDefined) {
       if (heroes.contains(statsArgs.hero.get)) {
-        println(heroes(statsArgs.item.get).toString)
+        println(heroes(statsArgs.hero.get).toString)
       } else {
         println(s"${statsArgs.hero.get} is not a hero.")
       }

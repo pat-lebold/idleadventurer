@@ -1,7 +1,7 @@
 package com.salad.idlehero.cli
-import scopt.OptionParser
+import com.salad.idlehero.model.InventoryManager
 
-class ShopCommand extends AbstractCliCommand[ShopCommandArgs] {
+class ShopCommand(inventoryManager: InventoryManager) extends AbstractCliCommand[ShopCommandArgs] {
   override val commandName: String = "/shop"
   override val helpText: String =
     """

@@ -13,10 +13,10 @@ class Hero(val name: String,
            critChance: Double,
            items: mutable.Map[ItemSlot, Option[Item]]) {
 
-  var cooldown = 0
+  var cooldown = attackSpeed
 
   def attack(): Option[Attack] = {
-    if (cooldown != 0) {
+    if (cooldown > 0) {
       cooldown -= 1
       return None
     }
@@ -28,7 +28,7 @@ class Hero(val name: String,
     val finalCritChance = equippedItems.foldLeft(critChance) { case (cc, item) => cc + item.critChance}
     val finalDropRateMulti = equippedItems.foldLeft(0.0) { case (dr, item) => dr + item.dropRate }
 
-    val attackSpeedMulti = equippedItems.foldLeft(0.0) { case (as, item) => as + item.attackSpeed }
+    val attackSpeedMulti = Math.max(1, equippedItems.foldLeft(0.0) { case (as, item) => as + item.attackSpeed })
 
     cooldown = Math.max(1, attackSpeed.toDouble / attackSpeedMulti).toInt
     Some(Attack(finalAttackDamage, finalMagicDamage, finalCritChance <= Math.random(), finalDropRateMulti ))
@@ -37,6 +37,7 @@ class Hero(val name: String,
   override def toString: String = {
     s"""
       |Hero:
+      |\t- name: $name
       |\t- class: ${heroClass.name}
       |\t- rarity: ${rarity.name}
       |\t- attack speed: $attackSpeed

@@ -22,8 +22,8 @@ object JsonHeroLoader extends AbstractJsonResourceLoader {
 
     heroesTaskFiles.map { path =>
       val jsonTree = objectMapper.readTree(path.toFile)
-      val heroClass = heroClasses(jsonTree.get("class").asText())
       val name = jsonTree.get("name").asText()
+      val heroClass = heroClasses(jsonTree.get("class").asText())
 
       val mutableItems: mutable.Map[ItemSlot, Option[Item]] = mutable.Map()
       heroClass.itemSlots.foreach { itemSlot =>
@@ -32,7 +32,7 @@ object JsonHeroLoader extends AbstractJsonResourceLoader {
 
       val hero = new Hero(
         name = jsonTree.get("name").asText(),
-        heroClass = heroClasses(jsonTree.get("class").asText()),
+        heroClass = heroClass,
         rarity = rarities(jsonTree.get("rarity").asText()),
         attackSpeed = jsonTree.get("attackSpeed").asInt(),
         attackDamage = jsonTree.get("attackDamage").asLong(),
