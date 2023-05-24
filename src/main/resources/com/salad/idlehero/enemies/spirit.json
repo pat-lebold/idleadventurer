@@ -1,0 +1,21 @@
+{
+  "name": "spirit",
+  "elemental": true,
+  "health": 60,
+  "armor": 0,
+  "magicResist": 1,
+  "dodgeChance": 0.3,
+  "dropRate": 0.05,
+  "drops": [
+    {
+      "name": "gold",
+      "chance": 0.20,
+      "quantity": 1
+    },
+    {
+      "name": "gem",
+      "chance": 0.80,
+      "quantity": 1
+    }
+  ]
+}

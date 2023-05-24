@@ -1,0 +1,8 @@
+{
+  "name": "stick",
+  "elemental": false,
+  "sellValue": 1,
+  "buyValue": 20,
+  "components": [],
+  "equipSlot": null
+}

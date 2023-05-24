@@ -1,0 +1,21 @@
+{
+  "name": "blob",
+  "elemental": true,
+  "health": 60,
+  "armor": 1,
+  "magicResist": 1,
+  "dodgeChance": 0.08,
+  "dropRate": 0.05,
+  "drops": [
+    {
+      "name": "gold",
+      "chance": 0.20,
+      "quantity": 1
+    },
+    {
+      "name": "ooze",
+      "chance": 0.80,
+      "quantity": 1
+    }
+  ]
+}

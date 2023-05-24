@@ -1,0 +1,50 @@
+[
+  {
+    "name": "common",
+    "chance": 0.75,
+    "attackDamageMultiplier": 1.00,
+    "magicDamageMultiplier": 1.00,
+    "healthMultiplier": 1.00,
+    "critChanceMultiplier": 1.00,
+    "armorMultiplier": 1.00,
+    "magicResistMultiplier": 1.00,
+    "dodgeChanceMultiplier": 1.00,
+    "dropRateMultiplier": 1.00
+  },
+  {
+    "name": "rare",
+    "chance": 0.18,
+    "attackDamageMultiplier": 2.00,
+    "magicDamageMultiplier": 2.00,
+    "healthMultiplier": 2.00,
+    "critChanceMultiplier": 2.00,
+    "armorMultiplier": 2.00,
+    "magicResistMultiplier": 2.00,
+    "dodgeChanceMultiplier": 2.00,
+    "dropRateMultiplier": 2.00
+  },
+  {
+    "name": "epic",
+    "chance": 0.06,
+    "attackDamageMultiplier": 5.00,
+    "magicDamageMultiplier": 5.00,
+    "healthMultiplier": 5.00,
+    "critChanceMultiplier": 5.00,
+    "armorMultiplier": 5.00,
+    "magicResistMultiplier": 5.00,
+    "dodgeChanceMultiplier": 5.00,
+    "dropRateMultiplier": 5.00
+  },
+  {
+    "name": "legendary",
+    "chance": 0.01,
+    "attackDamageMultiplier": 10.00,
+    "magicDamageMultiplier": 10.00,
+    "healthMultiplier": 10.00,
+    "critChanceMultiplier": 10.00,
+    "armorMultiplier": 10.00,
+    "magicResistMultiplier": 10.00,
+    "dodgeChanceMultiplier": 10.00,
+    "dropRateMultiplier": 10.00
+  }
+]

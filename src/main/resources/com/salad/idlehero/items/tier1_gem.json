@@ -1,0 +1,8 @@
+{
+  "name": "gem",
+  "elemental": true,
+  "sellValue": 3,
+  "buyValue": 60,
+  "components": [],
+  "equipSlot": null
+}

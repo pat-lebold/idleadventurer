@@ -1,0 +1,8 @@
+{
+  "name": "gold",
+  "elemental": false,
+  "sellValue": 1,
+  "buyValue": 1,
+  "components": [],
+  "equipSlot": null
+}

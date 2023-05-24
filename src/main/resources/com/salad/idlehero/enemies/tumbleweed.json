@@ -1,0 +1,16 @@
+{
+  "name": "tumbleweed",
+  "elemental": false,
+  "health": 10,
+  "armor": 0,
+  "magicResist": 0,
+  "dodgeChance": 0.8,
+  "dropRate": 0.05,
+  "drops": [
+    {
+      "name": "twine",
+      "chance": 1.00,
+      "quantity": 1
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ordinary",
+    "healthMultiplier": 1.00,
+    "armorMultiplier": 1.00,
+    "magicResistMultiplier": 1.00,
+    "dodgeChanceMultiplier": 1.00,
+    "attackDamageMultiplier": 1.00,
+    "magicDamageMultiplier": 1.00,
+    "dropChanceMultiplier": 1.00,
+    "attackSpeedMultiplier": 1.00,
+    "critChanceMultiplier": 1.00
+  },
+  {
+    "name": "earth",
+    "healthMultiplier": 2.00,
+    "armorMultiplier": 1.00,
+    "magicResistMultiplier": 1.00,
+    "dodgeChanceMultiplier": 1.00,
+    "attackDamageMultiplier": 2.50,
+    "magicDamageMultiplier": 1.00,
+    "dropChanceMultiplier": 1.00,
+    "attackSpeedMultiplier": 0.60,
+    "critChanceMultiplier": 1.00
+  },
+  {
+    "name": "wind",
+    "healthMultiplier": 1.00,
+    "armorMultiplier": 1.00,
+    "magicResistMultiplier": 1.00,
+    "dodgeChanceMultiplier": 2.00,
+    "attackDamageMultiplier": 1.00,
+    "magicDamageMultiplier": 1.00,
+    "dropChanceMultiplier": 1.50,
+    "attackSpeedMultiplier": 2.00,
+    "critChanceMultiplier": 1.00
+  },
+  {
+    "name": "fire",
+    "healthMultiplier": 1.00,
+    "armorMultiplier": 2.00,
+    "magicResistMultiplier": 1.00,
+    "dodgeChanceMultiplier": 1.00,
+    "attackDamageMultiplier": 1.50,
+    "magicDamageMultiplier": 1.00,
+    "dropChanceMultiplier": 1.00,
+    "attackSpeedMultiplier": 1.00,
+    "critChanceMultiplier": 2.00
+  },
+  {
+    "name": "water",
+    "healthMultiplier": 1.00,
+    "armorMultiplier": 1.00,
+    "magicResistMultiplier": 2.00,
+    "dodgeChanceMultiplier": 1.00,
+    "attackDamageMultiplier": 1.00,
+    "magicDamageMultiplier": 2.00,
+    "dropChanceMultiplier": 1.00,
+    "attackSpeedMultiplier": 1.00,
+    "critChanceMultiplier": 1.00
+  }
+]

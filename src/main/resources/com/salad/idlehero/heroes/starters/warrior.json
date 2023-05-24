@@ -1,0 +1,9 @@
+{
+  "name": "warrior",
+  "rarity": "common",
+  "class": "human",
+  "attackSpeed": 6,
+  "attackDamage": 11,
+  "magicDamage": 0,
+  "critChance": 0.1
+}

@@ -1,0 +1,9 @@
+{
+  "name": "mage",
+  "rarity": "common",
+  "class": "human",
+  "attackSpeed": 6,
+  "attackDamage": 0,
+  "magicDamage": 11,
+  "critChance": 0.1
+}

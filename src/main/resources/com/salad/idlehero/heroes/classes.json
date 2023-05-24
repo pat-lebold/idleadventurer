@@ -1,0 +1,6 @@
+[
+  {
+    "name": "human",
+    "itemSlots": ["hand", "feet", "head"]
+  }
+]

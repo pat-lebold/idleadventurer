@@ -1,0 +1,26 @@
+{
+  "name": "trap chest",
+  "elemental": false,
+  "health": 100,
+  "armor": 1,
+  "magicResist": 0,
+  "dodgeChance": 0.0,
+  "dropRate": 0.05,
+  "drops": [
+    {
+      "name": "gold",
+      "chance": 0.40,
+      "quantity": 10
+    },
+    {
+      "name": "stick",
+      "chance": 0.20,
+      "quantity": 1
+    },
+    {
+      "name": "pebble",
+      "chance": 0.20,
+      "quantity": 1
+    }
+  ]
+}
