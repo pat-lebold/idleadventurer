@@ -3,7 +3,9 @@ package com.salad.idlehero.model
 import scala.collection.mutable
 import scala.util.Try
 
-class InventoryManager(private val inventory: mutable.Map[String, ItemStack]) {
+class InventoryManager() {
+
+  private val inventory: mutable.Map[String, ItemStack] = mutable.Map()
 
   def deposit(itemStack: ItemStack): Unit = {
     if (!inventory.contains(itemStack.item.id()))

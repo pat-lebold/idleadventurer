@@ -1,6 +1,19 @@
 package com.salad.idlehero.game
 
-class GameLoopManager(resourceGrowthTaskManager: ResourceGrowthTaskManager) extends Runnable {
+import com.salad.idlehero.model.{Campaign, InventoryManager, Stage}
 
-  override def run(): Unit = resourceGrowthTaskManager.executeAllTasks()
+class GameLoopManager(inventoryManager: InventoryManager,
+                      campaigns: Seq[Campaign]) {
+
+  var currentCampaign: Campaign = null
+  val currentStageIndex: Int = 0
+  val stageEnemiesDefeated: Int = 0
+
+  def startCampaign(): Unit = {
+
+  }
+
+  def pauseCampaign(): Unit = {
+
+  }
 }

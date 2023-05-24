@@ -4,15 +4,16 @@ import com.salad.idlehero.model.ItemSlots.ItemSlot
 import com.salad.idlehero.model.{Hero, Item}
 
 import java.nio.file.{FileSystems, Files}
+import scala.collection.mutable
 import scala.jdk.CollectionConverters.IteratorHasAsScala
 
 object JsonHeroLoader extends AbstractJsonResourceLoader {
 
-  def loadStarterHeroes(): Seq[Hero] = loadHeroes("heroes/starters/")
+  def loadStarterHeroes(): Map[String, Hero] = loadHeroes("heroes/starters/")
 
-  def loadHeroes(): Seq[Hero] = loadHeroes("heroes/")
+  def loadHeroes(): Map[String, Hero] = loadHeroes("heroes/")
 
-  private def loadHeroes(path: String): Seq[Hero] = {
+  private def loadHeroes(path: String): Map[String, Hero] = {
     val heroesTaskFileDir = FileSystems.getDefault.getPath(s"$BASE_PATH$path")
     val heroesTaskFiles = Files.list(heroesTaskFileDir).iterator().asScala.filter(Files.isRegularFile(_)).toSeq
 
@@ -22,8 +23,14 @@ object JsonHeroLoader extends AbstractJsonResourceLoader {
     heroesTaskFiles.map { path =>
       val jsonTree = objectMapper.readTree(path.toFile)
       val heroClass = heroClasses(jsonTree.get("class").asText())
+      val name = jsonTree.get("name").asText()
 
-      new Hero(
+      val mutableItems: mutable.Map[ItemSlot, Option[Item]] = mutable.Map()
+      heroClass.itemSlots.foreach { itemSlot =>
+        mutableItems.put(itemSlot, None)
+      }
+
+      val hero = new Hero(
         name = jsonTree.get("name").asText(),
         heroClass = heroClasses(jsonTree.get("class").asText()),
         rarity = rarities(jsonTree.get("rarity").asText()),
@@ -31,8 +38,9 @@ object JsonHeroLoader extends AbstractJsonResourceLoader {
         attackDamage = jsonTree.get("attackDamage").asLong(),
         magicDamage = jsonTree.get("magicDamage").asLong(),
         critChance = jsonTree.get("critChance").asDouble(),
-        items = Map[ItemSlot, Option[Item]](heroClass.itemSlots.map { _ -> None })
+        items = collection.mutable.Map()
       )
-    }
+      name -> hero
+    }.toMap
   }
 }

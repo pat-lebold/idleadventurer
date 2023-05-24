@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Maiden Voyage",
+    "elementDistribution": [
+      {
+        "name": "ordinary",
+        "frequency": 0.60
+      },
+      {
+        "name": "earth",
+        "frequency": 0.10
+      },
+      {
+        "name": "fire",
+        "frequency": 0.10
+      },
+      {
+        "name": "water",
+        "frequency": 0.10
+      },
+      {
+        "name": "air",
+        "frequency": 0.10
+      }
+    ],
+    "stages": [
+      {
+        "numEnemies": 10,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.85
+          },
+          {
+            "name": "rare",
+            "frequency": 0.15
+          }
+        ]
+      },
+      {
+        "numEnemies": 15,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.70
+          },
+          {
+            "name": "rare",
+            "frequency": 0.30
+          }
+        ]
+      },
+      {
+        "numEnemies": 20,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.60
+          },
+          {
+            "name": "rare",
+            "frequency": 0.30
+          },
+          {
+            "name": "epic",
+            "frequency": 0.10
+          }
+        ]
+      },
+      {
+        "numEnemies": 25,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.50
+          },
+          {
+            "name": "rare",
+            "frequency": 0.35
+          },
+          {
+            "name": "epic",
+            "frequency": 0.15
+          }
+        ]
+      },
+      {
+        "numEnemies": 1,
+        "rarityDistribution": [
+          {
+            "name": "legendary",
+            "frequency": 1.0
+          }
+        ]
+      }
+    ]
+  }
+]

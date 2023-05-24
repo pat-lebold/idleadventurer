@@ -4,7 +4,7 @@ import com.salad.idlehero.model.ItemSlots.ItemSlot
 
 import scala.collection.mutable
 
-class Hero(name: String,
+class Hero(val name: String,
            heroClass: HeroClass,
            rarity: Rarity,
            attackSpeed: Int,
@@ -32,5 +32,17 @@ class Hero(name: String,
 
     cooldown = Math.max(1, attackSpeed.toDouble / attackSpeedMulti).toInt
     Some(Attack(finalAttackDamage, finalMagicDamage, finalCritChance <= Math.random(), finalDropRateMulti ))
+  }
+
+  override def toString: String = {
+    s"""
+      |Hero:
+      |\t- class: ${heroClass.name}
+      |\t- rarity: ${rarity.name}
+      |\t- attack speed: $attackSpeed
+      |\t- attack damage: $attackDamage
+      |\t- magic damage: $magicDamage
+      |\t- crit chance: $critChance
+      |""".stripMargin
   }
 }
