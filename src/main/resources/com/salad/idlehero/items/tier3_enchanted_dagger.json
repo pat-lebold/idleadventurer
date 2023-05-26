@@ -1,0 +1,22 @@
+{
+  "name": "enchanted_dagger",
+  "elemental": true,
+  "sellable": true,
+  "purchasable": false,
+  "sellValue": 10,
+  "buyValue": 200,
+  "components": [
+    {
+      "name": "dagger",
+      "quantity": 1
+    },
+    {
+      "name": "ooze",
+      "quantity": 2
+    }
+  ],
+  "equipSlot": "Hand",
+  "attackDamage": 4,
+  "attackSpeed": 1,
+  "critChance": 0.05
+}

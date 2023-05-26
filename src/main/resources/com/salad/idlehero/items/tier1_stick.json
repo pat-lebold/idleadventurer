@@ -1,6 +1,8 @@
 {
   "name": "stick",
   "elemental": false,
+  "sellable": true,
+  "purchasable": true,
   "sellValue": 1,
   "buyValue": 20,
   "components": [],

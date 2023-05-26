@@ -1,9 +1,9 @@
 package com.salad.idlehero
 
-import com.salad.idlehero.cli.CliManager
+import com.salad.idlehero.cli.{CampaignCommand, CliManager}
 import com.salad.idlehero.game.{EnemyGenerator, GameLoopManager}
 import com.salad.idlehero.model.{Hero, InventoryManager}
-import com.salad.idlehero.resource.{JsonCampaignLoader, JsonEnemyLoader, JsonHeroLoader, JsonItemLoader}
+import com.salad.idlehero.resource.{JsonCampaignLoader, JsonElementsLoader, JsonEnemyLoader, JsonHeroLoader, JsonItemLoader}
 
 import scala.io.StdIn.readLine
 
@@ -20,16 +20,17 @@ object App {
      */
 
     val campaigns = JsonCampaignLoader.loadCampaigns()
+    val elements = JsonElementsLoader.loadElements()
+    val enemies = JsonEnemyLoader.loadEnemies()
     val items = JsonItemLoader.loadItems()
     val heroes = JsonHeroLoader.loadStarterHeroes()
-    val enemies = JsonEnemyLoader.loadEnemies()
 
-    val userHero = heroes("warrior")
+    val userHero = heroes("paladin")
 
     val inventoryManager = new InventoryManager()
     val gameLoopManager = new GameLoopManager(inventoryManager, campaigns, userHero, enemies)
 
-    val cliManager = new CliManager(inventoryManager, gameLoopManager, items, heroes, userHero).init()
+    val cliManager = new CliManager(inventoryManager, gameLoopManager, elements, items, heroes, userHero).init()
 
     while(true) {
       val input = readLine().split(" ")
@@ -37,7 +38,9 @@ object App {
         val command = input(0)
         val args = input.drop(1)
 
-        if (cliManager.cliCommands.contains(command))
+        if (gameLoopManager.active && command != new CampaignCommand(gameLoopManager).commandName) {
+          println("You're on a campaign! You have no time for that!\n\nYou can leave the campaign with the following command:\n\t- /campaign stop")
+        } else if (cliManager.cliCommands.contains(command))
           cliManager.cliCommands(command).execute(args)
         else {
           cliManager.cliCommands("/help").execute(args)
@@ -176,7 +179,15 @@ object App {
     Thread.sleep(2000)
     println("well actually that's it...")
     Thread.sleep(2000)
-    println("well you can go on a campaign as well.")
+    println("well actually there's the forge now that I think about it")
+    Thread.sleep(500)
+    println("but you don't have anythign to forge...")
+    Thread.sleep(500)
+    println("...")
+    Thread.sleep(500)
+    println("but if you did you could create new items there... weapons even")
+    Thread.sleep(2000)
+    println("and also you could go on a campaign as well.")
     Thread.sleep(1000)
     println("I'll leave it up to you.\n")
     Thread.sleep(2000)

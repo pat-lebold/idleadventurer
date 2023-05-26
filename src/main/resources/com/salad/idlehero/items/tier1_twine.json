@@ -1,6 +1,8 @@
 {
   "name": "twine",
   "elemental": false,
+  "sellable": true,
+  "purchasable": true,
   "sellValue": 2,
   "buyValue": 40,
   "components": [],

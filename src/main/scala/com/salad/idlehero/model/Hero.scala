@@ -27,11 +27,10 @@ class Hero(val name: String,
     val finalMagicDamage = equippedItems.foldLeft(magicDamage) { case (md, item) => md + item.magicDamage }
     val finalCritChance = equippedItems.foldLeft(critChance) { case (cc, item) => cc + item.critChance}
     val finalDropRateMulti = equippedItems.foldLeft(0.0) { case (dr, item) => dr + item.dropRate }
-
     val attackSpeedMulti = Math.max(1, equippedItems.foldLeft(0.0) { case (as, item) => as + item.attackSpeed })
 
     cooldown = Math.max(1, attackSpeed.toDouble / attackSpeedMulti).toInt
-    Some(Attack(finalAttackDamage, finalMagicDamage, finalCritChance <= Math.random(), finalDropRateMulti ))
+    Some(Attack(finalAttackDamage, finalMagicDamage, Math.random() <= finalCritChance, finalDropRateMulti ))
   }
 
   override def toString: String = {

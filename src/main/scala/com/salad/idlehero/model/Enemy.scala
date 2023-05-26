@@ -12,7 +12,7 @@ case class Enemy(name: String,
   def attack(attackDamage: Long, magicDamage: Long, crit: Boolean): Long = {
     if (Math.random() <= dodgeChance) {
       println(s"${displayName()} dodged your attack!")
-      return 0
+      return health
     }
 
     val multiplier = if (crit) 2 else 1

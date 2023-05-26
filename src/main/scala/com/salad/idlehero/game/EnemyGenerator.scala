@@ -1,6 +1,6 @@
 package com.salad.idlehero.game
 
-import com.salad.idlehero.model.{Element, Enemy, EnemyClass, Rarity}
+import com.salad.idlehero.model.{Element, Enemy, EnemyClass, ItemStack, Rarity}
 
 import scala.util.Random
 
@@ -14,14 +14,21 @@ class EnemyGenerator(enemyClassPool: Map[EnemyClass, Double],
 
   def generateEnemy(): Enemy = {
     val enemyClass = enemies(Random.nextInt(enemies.size))
-    val element = elements(Random.nextInt(elements.size))
+    val element = if (enemyClass.elemental) elements(Random.nextInt(elements.size)) else Element(name = "no-element",1,1,1,1,1,1,1,1,1)
     val rarity = rarities(Random.nextInt(rarities.size))
 
-    val willDrop = (enemyClass.dropRate * element.dropChanceMultiplier * rarity.dropRateMultiplier) <= Math.random()
+    val dropRatePercentage = enemyClass.dropRate * element.dropChanceMultiplier * rarity.dropRateMultiplier
+    val willDrop = Math.random() <= dropRatePercentage
+
     val drop = if (willDrop) {
       val drops = explodeOptionPool(enemyClass.drops)
-      Some(drops(Random.nextInt(drops.size)))
+      val drop = drops(Random.nextInt(drops.size))
+      if (enemyClass.elemental && drop.item.elemental)
+        Some (new ItemStack(drop.item.clone(Some(element)), drop.quantity))
+      else
+        Some (new ItemStack(drop.item.clone(None), drop.quantity) )
     } else None
+
 
     Enemy(
       name = enemyClass.name,

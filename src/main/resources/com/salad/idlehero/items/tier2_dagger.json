@@ -1,0 +1,26 @@
+{
+  "name": "dagger",
+  "elemental": false,
+  "sellable": true,
+  "purchasable": false,
+  "sellValue": 4,
+  "buyValue": 125,
+  "components": [
+    {
+      "name": "pebble",
+      "quantity": 3
+    },
+    {
+      "name": "stick",
+      "quantity": 2
+    },
+    {
+      "name": "twine",
+      "quantity": 1
+    }
+  ],
+  "equipSlot": "Hand",
+  "attackDamage": 4,
+  "attackSpeed": 1,
+  "critChance": 0.05
+}

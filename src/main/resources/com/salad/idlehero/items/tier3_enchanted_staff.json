@@ -1,0 +1,21 @@
+{
+  "name": "enchanted_staff",
+  "elemental": true,
+  "sellable": true,
+  "purchasable": false,
+  "sellValue": 10,
+  "buyValue": 220,
+  "components": [
+    {
+      "name": "staff",
+      "quantity": 1
+    },
+    {
+      "name": "ooze",
+      "quantity": 2
+    }
+  ],
+  "equipSlot": "Hand",
+  "magicDamage": 6,
+  "critChance": 0.05
+}

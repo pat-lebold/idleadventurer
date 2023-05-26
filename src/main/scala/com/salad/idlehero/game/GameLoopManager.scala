@@ -20,11 +20,15 @@ class GameLoopManager(inventoryManager: InventoryManager,
   def startCampaign(): Unit = {
     if (campaignStatus.currentCampaign == null) {
       campaignStatus.currentCampaign = campaigns.head
+
+      println(s"You've begun the campaign: ${campaignStatus.currentCampaign.name}")
+      println(s"You are on stage ${campaignStatus.currentStageIndex + 1} of ${campaignStatus.currentCampaign.stages.size} stages.")
+      println(s"You need to defeat ${campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).numEnemies - campaignStatus.stageEnemiesDefeated} enemies to progress...")
+      Thread.sleep(2000)
     }
 
     active = true
-    val enemyDistro = Map(enemies("blob") -> 1.00)
-    val enemyGenerator = new EnemyGenerator(enemyDistro, campaignStatus.currentCampaign.elementDistribution, campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).rarityDistribution)
+    val enemyDistro = campaignStatus.currentCampaign.enemyDistribution
 
     val fightRunner = new FightRunner(userHero, campaignStatus, inventoryManager, enemyDistro)
     fightRunnerHandle = ex.scheduleAtFixedRate(fightRunner, 0L, TICK_RATE, TimeUnit.MILLISECONDS)
@@ -35,9 +39,9 @@ class GameLoopManager(inventoryManager: InventoryManager,
       fightRunnerHandle.cancel(true)
       active = false
       println("You have left the campaign!")
-      Thread.sleep(2000)
+      Thread.sleep(500)
       println("...")
-      Thread.sleep(1000)
+      Thread.sleep(500)
       println("You wimp.")
     }
   }

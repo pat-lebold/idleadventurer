@@ -1,0 +1,21 @@
+{
+  "name": "staff",
+  "elemental": false,
+  "sellable": true,
+  "purchasable": false,
+  "sellValue": 5,
+  "buyValue": 150,
+  "components": [
+    {
+      "name": "stick",
+      "quantity": 6
+    },
+    {
+      "name": "twine",
+      "quantity": 1
+    }
+  ],
+  "equipSlot": "Hand",
+  "magicDamage": 6,
+  "critChance": 0.05
+}

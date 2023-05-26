@@ -1,6 +1,24 @@
 [
   {
     "name": "Maiden Voyage",
+    "enemyDistribution": [
+      {
+        "name": "blob",
+        "frequency": 0.30
+      },
+      {
+        "name": "spirit",
+        "frequency": 0.25
+      },
+      {
+        "name": "trapchest",
+        "frequency": 0.30
+      },
+      {
+        "name": "tumbleweed",
+        "frequency": 0.15
+      }
+    ],
     "elementDistribution": [
       {
         "name": "ordinary",
@@ -25,7 +43,7 @@
     ],
     "stages": [
       {
-        "numEnemies": 10,
+        "numEnemies": 5,
         "rarityDistribution": [
           {
             "name": "common",
@@ -38,7 +56,7 @@
         ]
       },
       {
-        "numEnemies": 15,
+        "numEnemies": 7,
         "rarityDistribution": [
           {
             "name": "common",
@@ -51,7 +69,7 @@
         ]
       },
       {
-        "numEnemies": 20,
+        "numEnemies": 10,
         "rarityDistribution": [
           {
             "name": "common",
@@ -68,7 +86,7 @@
         ]
       },
       {
-        "numEnemies": 25,
+        "numEnemies": 10,
         "rarityDistribution": [
           {
             "name": "common",

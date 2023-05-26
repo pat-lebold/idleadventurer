@@ -1,6 +1,8 @@
 {
   "name": "gold",
   "elemental": false,
+  "sellable": true,
+  "purchasable": true,
   "sellValue": 1,
   "buyValue": 1,
   "components": [],

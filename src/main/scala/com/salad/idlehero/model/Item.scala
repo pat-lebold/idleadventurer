@@ -3,11 +3,13 @@ package com.salad.idlehero.model
 import com.salad.idlehero.model.ItemSlots.ItemSlot
 
 case class Item(name: String,
+                sellable: Boolean,
+                purchasable: Boolean,
                 sellValue: Long,
                 buyValue: Long,
                 elemental: Boolean,
                 element: Option[Element],
-                components: Seq[String],
+                components: Map[String, Int],
                 itemSlot: Option[ItemSlot],
                 attackDamage: Long = 0,
                 magicDamage: Long = 0,
@@ -24,6 +26,10 @@ case class Item(name: String,
     }
 
     sb.toString()
+  }
+
+  def clone(elementOption: Option[Element]): Item = {
+    Item(name, sellable, purchasable, sellValue, buyValue, elemental, elementOption, components, itemSlot, attackDamage, magicDamage, attackSpeed, critChance, dropRate)
   }
 
   override def toString: String = {

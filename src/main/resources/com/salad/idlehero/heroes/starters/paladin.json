@@ -2,7 +2,7 @@
   "name": "paladin",
   "rarity": "common",
   "class": "human",
-  "attackSpeed": 3,
+  "attackSpeed": 2,
   "attackDamage": 5,
   "magicDamage": 5,
   "critChance": 0.15

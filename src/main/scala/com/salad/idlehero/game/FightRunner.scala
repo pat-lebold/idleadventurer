@@ -14,6 +14,8 @@ class FightRunner(userHero: Hero,
   )
 
   private var enemy = enemyGenerator.generateEnemy()
+
+  println(s"${enemy.displayName()} appeared!")
   override def run(): Unit = {
     val currentStage = campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex)
 
@@ -27,13 +29,16 @@ class FightRunner(userHero: Hero,
       if (remainingHealth <= 0) {
         campaignStatus.stageEnemiesDefeated += 1
         println(s"You killed the ${enemy.displayName()}!")
-        println(s"Stage progress ${campaignStatus.stageEnemiesDefeated}/${currentStage.numEnemies}")
 
         if (enemy.drop.isDefined) {
           val drop = enemy.drop.get
           inventoryManager.deposit(drop)
-          println(s"The ${enemy.displayName()} dropped ${drop.quantity} ${drop.item.name}s!\n")
+          println(s"The ${enemy.displayName()} dropped ${drop.quantity} ${drop.item.name}!\n")
+        } else {
+          println(s"The ${enemy.displayName()} dropped nothing...\n")
         }
+
+        println(s"Stage progress ${campaignStatus.stageEnemiesDefeated}/${currentStage.numEnemies}")
 
         if (campaignStatus.stageEnemiesDefeated >= currentStage.numEnemies) {
           campaignStatus.currentStageIndex += 1
@@ -42,6 +47,7 @@ class FightRunner(userHero: Hero,
             println("You completed the campaign!") // TODO: next campaign
           } else {
             println(s"You've progressed to stage ${campaignStatus.currentStageIndex}")
+            println(s"You must defeat ${campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).numEnemies} enemies to advance.")
             val elementDistribution = campaignStatus.currentCampaign.elementDistribution
             val rarityDistribution = campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).rarityDistribution
             enemyGenerator = new EnemyGenerator(enemyDistribution, elementDistribution, rarityDistribution)

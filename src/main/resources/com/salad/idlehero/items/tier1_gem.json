@@ -1,6 +1,8 @@
 {
   "name": "gem",
   "elemental": true,
+  "sellable": true,
+  "purchasable": true,
   "sellValue": 3,
   "buyValue": 60,
   "components": [],

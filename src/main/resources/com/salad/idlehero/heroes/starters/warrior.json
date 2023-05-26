@@ -2,7 +2,7 @@
   "name": "warrior",
   "rarity": "common",
   "class": "human",
-  "attackSpeed": 6,
+  "attackSpeed": 4,
   "attackDamage": 11,
   "magicDamage": 0,
   "critChance": 0.1
