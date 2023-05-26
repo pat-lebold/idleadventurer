@@ -4,41 +4,45 @@
     "enemyDistribution": [
       {
         "name": "blob",
-        "frequency": 0.30
-      },
-      {
-        "name": "spirit",
         "frequency": 0.25
       },
       {
+        "name": "spirit",
+        "frequency": 0.20
+      },
+      {
         "name": "trapchest",
-        "frequency": 0.30
+        "frequency": 0.25
       },
       {
         "name": "tumbleweed",
-        "frequency": 0.15
+        "frequency": 0.10
+      },
+      {
+        "name": "plank",
+        "frequency": 0.20
       }
     ],
     "elementDistribution": [
       {
         "name": "ordinary",
-        "frequency": 0.60
+        "frequency": 0.20
       },
       {
         "name": "earth",
-        "frequency": 0.10
+        "frequency": 0.20
       },
       {
         "name": "fire",
-        "frequency": 0.10
+        "frequency": 0.20
       },
       {
         "name": "water",
-        "frequency": 0.10
+        "frequency": 0.20
       },
       {
         "name": "wind",
-        "frequency": 0.10
+        "frequency": 0.20
       }
     ],
     "stages": [
@@ -73,15 +77,15 @@
         "rarityDistribution": [
           {
             "name": "common",
-            "frequency": 0.60
+            "frequency": 0.65
           },
           {
             "name": "rare",
-            "frequency": 0.30
+            "frequency": 0.33
           },
           {
             "name": "epic",
-            "frequency": 0.10
+            "frequency": 0.02
           }
         ]
       },
@@ -90,15 +94,125 @@
         "rarityDistribution": [
           {
             "name": "common",
-            "frequency": 0.50
+            "frequency": 0.55
           },
           {
             "name": "rare",
-            "frequency": 0.35
+            "frequency": 0.40
           },
           {
             "name": "epic",
+            "frequency": 0.05
+          }
+        ]
+      },
+      {
+        "numEnemies": 1,
+        "rarityDistribution": [
+          {
+            "name": "legendary",
+            "frequency": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Shadowy Passages",
+    "enemyDistribution": [
+      {
+        "name": "shadow",
+        "frequency": 0.50
+      },
+      {
+        "name": "spirit",
+        "frequency": 0.15
+      },
+      {
+        "name": "trapchest",
+        "frequency": 0.10
+      },
+      {
+        "name": "tumbleweed",
+        "frequency": 0.25
+      }
+    ],
+    "elementDistribution": [
+      {
+        "name": "ordinary",
+        "frequency": 0.20
+      },
+      {
+        "name": "darkness",
+        "frequency": 0.40
+      },
+      {
+        "name": "fire",
+        "frequency": 0.20
+      },
+      {
+        "name": "wind",
+        "frequency": 0.20
+      }
+    ],
+    "stages": [
+      {
+        "numEnemies": 5,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.85
+          },
+          {
+            "name": "rare",
             "frequency": 0.15
+          }
+        ]
+      },
+      {
+        "numEnemies": 7,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.70
+          },
+          {
+            "name": "rare",
+            "frequency": 0.30
+          }
+        ]
+      },
+      {
+        "numEnemies": 10,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.65
+          },
+          {
+            "name": "rare",
+            "frequency": 0.33
+          },
+          {
+            "name": "epic",
+            "frequency": 0.02
+          }
+        ]
+      },
+      {
+        "numEnemies": 10,
+        "rarityDistribution": [
+          {
+            "name": "common",
+            "frequency": 0.56
+          },
+          {
+            "name": "rare",
+            "frequency": 0.41
+          },
+          {
+            "name": "epic",
+            "frequency": 0.03
           }
         ]
       },

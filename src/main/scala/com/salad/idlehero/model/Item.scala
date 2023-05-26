@@ -21,7 +21,7 @@ case class Item(name: String,
     val sb = new StringBuilder()
     sb.append(name)
     if (elemental) {
-      sb.append(" - ")
+      sb.append("_")
       sb.append(s"element(${element.get.name})")
     }
 
@@ -40,6 +40,11 @@ case class Item(name: String,
       | \t- buy value: $buyValue
       | \t- elemental: $elemental
       | \t- itemSlot: ${if (itemSlot.isDefined) itemSlot else None}
+      | \t- attack damage: $attackDamage
+      | \t- magic damage: $magicDamage
+      | \t- attack speed: $attackSpeed
+      | \t- crit chance: $critChance
+      | \t- drop rate: $dropRate
       |""".stripMargin
   }
 }

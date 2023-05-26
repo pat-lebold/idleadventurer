@@ -1,0 +1,26 @@
+{
+  "name": "shadow",
+  "elemental": true,
+  "health": 30,
+  "armor": 1,
+  "magicResist": 2,
+  "dodgeChance": 0.45,
+  "dropRate": 0.80,
+  "drops": [
+    {
+      "name": "gold",
+      "chance": 0.60,
+      "quantity": 6
+    },
+    {
+      "name": "gem",
+      "chance": 0.10,
+      "quantity": 1
+    },
+    {
+      "name": "anti-light",
+      "chance": 0.30,
+      "quantity": 1
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "shadow_sandals",
+  "elemental": false,
+  "sellable": true,
+  "purchasable": false,
+  "sellValue": 4,
+  "buyValue": 0,
+  "components": [
+    {
+      "name":  "ooze",
+      "quantity": 1
+    },
+    {
+      "name": "stick",
+      "quantity": 3
+    },
+    {
+      "name": "anti-light",
+      "quantity": 2
+    }
+  ],
+  "itemSlot": "Feet",
+  "attackSpeed": 2,
+  "critChance": 0.15
+}

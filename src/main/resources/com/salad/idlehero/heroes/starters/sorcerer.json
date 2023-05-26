@@ -1,0 +1,9 @@
+{
+  "name": "sorcerer",
+  "rarity": "epic",
+  "class": "human",
+  "attackSpeed": 1,
+  "attackDamage": 0,
+  "magicDamage": 300,
+  "critChance": 0.5
+}

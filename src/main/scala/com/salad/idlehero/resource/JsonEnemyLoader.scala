@@ -33,7 +33,7 @@ object JsonEnemyLoader extends AbstractJsonResourceLoader {
         health = jsonTree.get("health").asLong(),
         armor = jsonTree.get("armor").asLong(),
         magicResist = jsonTree.get("magicResist").asLong(),
-        dodgeChance = jsonTree.get("dodgeChance").asLong(),
+        dodgeChance = jsonTree.get("dodgeChance").asDouble(),
         dropRate = jsonTree.get("dropRate").asDouble(),
         drops = drops
       )

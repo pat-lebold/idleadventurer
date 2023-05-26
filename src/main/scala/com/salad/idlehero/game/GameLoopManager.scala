@@ -30,7 +30,7 @@ class GameLoopManager(inventoryManager: InventoryManager,
     active = true
     val enemyDistro = campaignStatus.currentCampaign.enemyDistribution
 
-    val fightRunner = new FightRunner(userHero, campaignStatus, inventoryManager, enemyDistro)
+    val fightRunner = new FightRunner(userHero, campaigns, campaignStatus, inventoryManager, enemyDistro)
     fightRunnerHandle = ex.scheduleAtFixedRate(fightRunner, 0L, TICK_RATE, TimeUnit.MILLISECONDS)
   }
 

@@ -1,6 +1,5 @@
 package com.salad.idlehero.cli
 
-import com.salad.idlehero.game.{GameLoopManager, ResourceGrowthTaskManager, ResourceManager}
 import com.salad.idlehero.model.{Hero, HeroClass, Item}
 import scopt.OptionParser
 
@@ -32,7 +31,14 @@ class StatsCommand(private val items: Map[String, Item],
   }
 
   override def execute(args: Array[String]): Unit = {
-    val statsArgs = parser().parse(args, StatsCommandArgs()).get
+    val statsArgs = parser().parse(args, StatsCommandArgs()).get match {
+      case success => success
+      case _ => {
+        println(helpText)
+        return
+      }
+    }
+
     if (statsArgs.hero.isDefined) {
       if (heroes.contains(statsArgs.hero.get)) {
         println(heroes(statsArgs.hero.get).toString)

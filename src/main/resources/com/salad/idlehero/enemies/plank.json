@@ -1,0 +1,16 @@
+{
+  "name": "plank",
+  "elemental": false,
+  "health": 50,
+  "armor": 2,
+  "magicResist": 0,
+  "dodgeChance": 0.05,
+  "dropRate": 0.40,
+  "drops": [
+    {
+      "name": "stick",
+      "chance": 1,
+      "quantity": 2
+    }
+  ]
+}

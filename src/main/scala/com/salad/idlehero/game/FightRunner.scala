@@ -1,8 +1,9 @@
 package com.salad.idlehero.game
 
-import com.salad.idlehero.model.{EnemyClass, Hero, InventoryManager}
+import com.salad.idlehero.model.{Campaign, EnemyClass, Hero, InventoryManager}
 
 class FightRunner(userHero: Hero,
+                  campaigns: Seq[Campaign],
                   campaignStatus: CampaignStatus,
                   inventoryManager: InventoryManager,
                   enemyDistribution: Map[EnemyClass, Double]) extends Runnable {
@@ -44,9 +45,24 @@ class FightRunner(userHero: Hero,
           campaignStatus.currentStageIndex += 1
           campaignStatus.stageEnemiesDefeated = 0
           if (campaignStatus.currentStageIndex >= campaignStatus.currentCampaign.stages.size) {
-            println("You completed the campaign!") // TODO: next campaign
+            println("You completed the campaign!")
+            campaignStatus.campaignIndex += 1
+            campaignStatus.currentCampaign = campaigns(campaignStatus.campaignIndex)
+            campaignStatus.currentStageIndex = 0
+            enemyGenerator = new EnemyGenerator(
+              campaignStatus.currentCampaign.enemyDistribution,
+              campaignStatus.currentCampaign.elementDistribution,
+              campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).rarityDistribution
+            )
+
+            Thread.sleep(1000)
+
+            println(s"You've begun the campaign: ${campaignStatus.currentCampaign.name}")
+            println(s"You are on stage ${campaignStatus.currentStageIndex + 1} of ${campaignStatus.currentCampaign.stages.size} stages.")
+            println(s"You need to defeat ${campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).numEnemies - campaignStatus.stageEnemiesDefeated} enemies to progress...")
+
           } else {
-            println(s"You've progressed to stage ${campaignStatus.currentStageIndex}")
+            println(s"You've progressed to stage ${campaignStatus.currentStageIndex + 1}")
             println(s"You must defeat ${campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).numEnemies} enemies to advance.")
             val elementDistribution = campaignStatus.currentCampaign.elementDistribution
             val rarityDistribution = campaignStatus.currentCampaign.stages(campaignStatus.currentStageIndex).rarityDistribution

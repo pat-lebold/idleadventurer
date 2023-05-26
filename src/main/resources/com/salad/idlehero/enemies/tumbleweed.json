@@ -4,7 +4,7 @@
   "health": 10,
   "armor": 0,
   "magicResist": 0,
-  "dodgeChance": 0.9,
+  "dodgeChance": 0.8,
   "dropRate": 0.50,
   "drops": [
     {

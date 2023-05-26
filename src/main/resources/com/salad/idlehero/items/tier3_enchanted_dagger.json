@@ -15,7 +15,7 @@
       "quantity": 2
     }
   ],
-  "equipSlot": "Hand",
+  "itemSlot": "Hand",
   "attackDamage": 4,
   "attackSpeed": 1,
   "critChance": 0.05

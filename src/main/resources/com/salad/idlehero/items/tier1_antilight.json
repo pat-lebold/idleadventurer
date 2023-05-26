@@ -1,0 +1,10 @@
+{
+  "name": "anti-light",
+  "elemental": false,
+  "sellable": true,
+  "purchasable": false,
+  "sellValue": 1,
+  "buyValue": 60,
+  "components": [],
+  "equipSlot": null
+}

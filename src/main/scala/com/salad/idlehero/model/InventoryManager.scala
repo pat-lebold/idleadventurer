@@ -37,7 +37,7 @@ class InventoryManager() {
   }
 
   def hasGem(elementName: String): Boolean = {
-    inventory.contains(s"gem - ${elementName}")
+    inventory.contains(s"gem_${elementName}")
   }
 
   def has(itemName: String, quantity: Long): Boolean = {
@@ -46,6 +46,15 @@ class InventoryManager() {
 
   def has(itemStack: ItemStack): Boolean = {
     inventory.contains(itemStack.item.id()) && inventory(itemStack.item.id()).quantity >= itemStack.quantity
+  }
+
+  // DONT PEEK IF YOU FINNA WITHDRAWAL
+  def peek(itemName: String): Try[ItemStack] = Try {
+    if (inventory.contains(itemName)) {
+      return Try(inventory(itemName))
+    }
+
+    throw new Exception(s"You don't have a \"$itemName\"")
   }
 
   def withdrawalGem(elementName: String): Try[ItemStack] = Try {
@@ -65,6 +74,15 @@ class InventoryManager() {
     }
 
     throw new Exception(s"You don't have $quantity gold.")
+  }
+
+  def withdrawal(itemName: String, quantity: Int): Try[ItemStack] = Try {
+    if (inventory.contains(itemName) && inventory(itemName).quantity >= quantity) {
+      inventory(itemName).quantity -= quantity
+      return Try(new ItemStack(inventory(itemName).item.clone(inventory(itemName).item.element), quantity))
+    }
+
+    throw new Exception(s"You don't have $quantity $itemName")
   }
 
   def withdrawal(itemStack: ItemStack): Try[ItemStack] = Try {

@@ -37,7 +37,7 @@ class EnemyGenerator(enemyClassPool: Map[EnemyClass, Double],
       health = (enemyClass.health * element.healthMultiplier * rarity.healthMultiplier).toLong,
       armor = (enemyClass.armor * element.armorMultiplier * rarity.armorMultiplier).toLong,
       magicResist = (enemyClass.magicResist * element.magicResistMultiplier * rarity.magicResistMultiplier).toLong,
-      dodgeChance = (enemyClass.dodgeChance * element.dodgeChanceMultiplier * rarity.dodgeChanceMultiplier),
+      dodgeChance = Math.min(0.8,(enemyClass.dodgeChance * element.dodgeChanceMultiplier * rarity.dodgeChanceMultiplier)),
       drop = drop
     )
   }

@@ -15,7 +15,7 @@
       "quantity": 1
     }
   ],
-  "equipSlot": "Hand",
+  "itemSlot": "Hand",
   "magicDamage": 6,
   "critChance": 0.05
 }

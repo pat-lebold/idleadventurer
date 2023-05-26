@@ -18,6 +18,7 @@ class CliManager(inventoryManager: InventoryManager,
     cliCommands.put("/help", new HelpCommand())
     cliCommands.put("/campaign", new CampaignCommand(gameLoopManager))
     cliCommands.put("/inventory", new InventoryCommand(inventoryManager))
+    cliCommands.put("/equip", new EquipCommand(userHero, inventoryManager))
     cliCommands.put("/shop", new ShopCommand(inventoryManager, items))
     cliCommands.put("/stats", new StatsCommand(items, heroes, userHero))
     cliCommands.put("/forge", new ForgeCommand(inventoryManager, items, elements))

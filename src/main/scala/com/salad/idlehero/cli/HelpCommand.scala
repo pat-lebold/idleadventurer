@@ -11,7 +11,9 @@ class HelpCommand() extends AbstractCliCommand[HelpCommandArgs]() {
       |	- /campaign <start | stop>
       |	- /stats --hero <hero name>
       |	- /stats --item <item name>
+      | - /equip
       | - /inventory
+      | - /forge
       | - /shop
       |""".stripMargin
 

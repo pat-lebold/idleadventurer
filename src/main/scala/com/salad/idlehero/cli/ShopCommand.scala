@@ -38,15 +38,22 @@ class ShopCommand(inventoryManager: InventoryManager,
     }
   }
   override def execute(args: Array[String]): Unit = {
-    println("Shop Command Entered")
+    val shopArgs = parser().parse(args, ShopCommandArgs()).get match {
+      case success => success
+      case _ => {
+        println(helpText)
+        return
+      }
+    }
 
-    val shopArgs = parser().parse(args, ShopCommandArgs()).get
     if (shopArgs.info.isDefined)
       infoCommand(shopArgs)
     else if (shopArgs.purchaseItem.isDefined)
       purchaseCommand(shopArgs)
     else if (shopArgs.sellItem.isDefined)
       sellCommand(shopArgs)
+    else
+      println(helpText)
   }
 
   private def infoCommand(args: ShopCommandArgs): Unit = {

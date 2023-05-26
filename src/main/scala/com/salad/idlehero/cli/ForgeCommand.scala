@@ -31,6 +31,10 @@ class ForgeCommand(inventoryManager: InventoryManager,
       opt[String]("item").optional().action { (x, c) =>
         c.copy(item = Some(x))
       } text "Name of item you wish to forge"
+
+      opt[String]("element").optional().action { (x, c) =>
+        c.copy(element = Some(x))
+      } text "The element of the item you wish to forge. (if applicable)"
     }
   }
 
@@ -65,7 +69,13 @@ class ForgeCommand(inventoryManager: InventoryManager,
         }
       }
     } else if (forgeArgs.item.isDefined && (forgeArgs.element.isEmpty || (forgeArgs.element.isDefined && elements.contains(forgeArgs.element.get)))) {
-      val itemArg = forgeArgs.item.get
+      val itemArg = forgeArgs.item.get match {
+        case success => success
+        case _ => {
+          println(helpText)
+          return
+        }
+      }
 
       // If requested item is a forgable item
       if (forgeableItems.contains(itemArg)) {
@@ -106,6 +116,8 @@ class ForgeCommand(inventoryManager: InventoryManager,
         } else {
           forgedItem
         }
+
+        println(s"You forged a ${finalItem.id()}")
 
         inventoryManager.deposit(new ItemStack(finalItem, 1))
       } else {

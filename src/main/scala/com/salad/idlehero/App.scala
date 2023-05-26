@@ -11,13 +11,12 @@ object App {
 
 
   def main(args: Array[String]): Unit = {
-
     /*
     val userHero: Hero = userSelectsHero()
 
     inventoryIntro()
     gotoIntro()
-     */
+    */
 
     val campaigns = JsonCampaignLoader.loadCampaigns()
     val elements = JsonElementsLoader.loadElements()
@@ -25,7 +24,7 @@ object App {
     val items = JsonItemLoader.loadItems()
     val heroes = JsonHeroLoader.loadStarterHeroes()
 
-    val userHero = heroes("paladin")
+    val userHero = heroes("sorcerer")
 
     val inventoryManager = new InventoryManager()
     val gameLoopManager = new GameLoopManager(inventoryManager, campaigns, userHero, enemies)
@@ -195,6 +194,8 @@ object App {
     println("\t- /campaign <start | stop>")
     println("\t- /stats --hero <hero name>")
     println("\t- /stats --item <item name>")
+    println("\t- /equip")
+    println("\t- /forge")
     println("\t- /inventory")
     println("\t- /shop")
     Thread.sleep(4000)

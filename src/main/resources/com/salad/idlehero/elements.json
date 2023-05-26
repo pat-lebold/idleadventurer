@@ -58,5 +58,17 @@
     "dropChanceMultiplier": 1.00,
     "attackSpeedMultiplier": 1.00,
     "critChanceMultiplier": 1.00
+  },
+  {
+    "name": "darkness",
+    "healthMultiplier": 1.25,
+    "armorMultiplier": 1.00,
+    "magicResistMultiplier": 1.50,
+    "dodgeChanceMultiplier": 2.00,
+    "attackDamageMultiplier": 1.00,
+    "magicDamageMultiplier": 1.25,
+    "dropChanceMultiplier": 2.00,
+    "attackSpeedMultiplier": 1.00,
+    "critChanceMultiplier": 2.5
   }
 ]
